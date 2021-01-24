@@ -87,3 +87,5 @@ source/block/block.vcxproj.user
 /source/fit/fit.vcxproj.user
 /source/histogram/x64
 /source/histogram/histogram.vcxproj.user
+/source/ieee-utils/x64
+/source/ieee-utils/ieee-utils.vcxproj.user
