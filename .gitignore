@@ -85,3 +85,5 @@ source/block/block.vcxproj.user
 /source/filter/filter.vcxproj.user
 /source/fit/x64
 /source/fit/fit.vcxproj.user
+/source/histogram/x64
+/source/histogram/histogram.vcxproj.user
