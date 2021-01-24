@@ -79,3 +79,5 @@ source/block/block.vcxproj.user
 /source/eigen/eigen.vcxproj.user
 /source/err/x64
 /source/err/err.vcxproj.user
+/source/fft/x64
+/source/fft/fft.vcxproj.user
