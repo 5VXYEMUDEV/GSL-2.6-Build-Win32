@@ -97,3 +97,5 @@ source/block/block.vcxproj.user
 /source/linalg/linalg.vcxproj.user
 /source/matrix/x64
 /source/matrix/matrix.vcxproj.user
+/source/min/x64
+/source/min/min.vcxproj.user
