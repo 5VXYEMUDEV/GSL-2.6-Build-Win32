@@ -103,3 +103,5 @@ source/block/block.vcxproj.user
 /source/monte/monte.vcxproj.user
 /source/multifit/x64
 /source/multifit/multifit.vcxproj.user
+/source/multifit_nlinear/x64
+/source/multifit_nlinear/multifit_nlinear.vcxproj.user
