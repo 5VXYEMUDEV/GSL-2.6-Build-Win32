@@ -69,3 +69,5 @@ source/block/block.vcxproj.user
 /source/combination/combination.vcxproj.user
 /source/complex/x64
 /source/complex/complex.vcxproj.user
+/source/deriv/x64
+/source/deriv/deriv.vcxproj.user
