@@ -109,3 +109,5 @@ source/block/block.vcxproj.user
 /source/multilarge/multilarge.vcxproj.user
 /source/multilarge_nlinear/x64
 /source/multilarge_nlinear/multilarge_nlinear.vcxproj.user
+/source/multimin/x64
+/source/multimin/multimin.vcxproj.user
