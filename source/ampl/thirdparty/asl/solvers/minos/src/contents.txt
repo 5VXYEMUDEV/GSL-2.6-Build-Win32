@@ -1,0 +1,13 @@
+This directory should contain the sources of minos library:
+
+mi17util.c  mi40bfil.c 
+mi20amat.c  mi50lp.c
+i21amat.c   mi60srch.c 
+mi25bfac.c  mi65rmod.c
+mi02lib.c   mi26bfac.c  
+mi70nobj.c  mi10unix.c  
+mi27lu.c    mi80ncon.c
+mi11sys.c   mi30spec.c  
+mi81ncon.c  mi12solv.c  
+mi35mps.c   mi15blas.c  
+mi36mps.c   

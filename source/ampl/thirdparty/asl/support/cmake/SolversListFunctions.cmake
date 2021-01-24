@@ -1,0 +1,250 @@
+# Add solver information to fixed form variables in the parent scope
+
+if(LINUX)
+    set(SYS_DIR_SUFFIX "linux${ARCH}")
+  elseif(APPLE)
+    set(SYS_DIR_SUFFIX "osx${ARCH}")
+  elseif(WIN32)
+    set(SYS_DIR_SUFFIX "win${ARCH}")
+endif()
+
+function(AddLibs name)
+  cmake_parse_arguments(PAR "" "LIBVERSION" "LINKLIBS;DIST;DYNAMIC;STATIC"  ${ARGN})
+  set(HOME "${BASE_SOLVER_LIBS}/${name}") 
+  if(PAR_LIBVERSION)
+    set(HOME ${HOME}/${PAR_LIBVERSION})
+  endif()
+
+  set(libs "")
+  if(PAR_LINKLIBS)
+    foreach(lib ${PAR_LINKLIBS})
+      append(LIBS ${HOME}/lib/${SYS_DIR_SUFFIX}/${lib})
+    endforeach()
+  endif()
+  set(${name}_LIBS ${LIBS} PARENT_SCOPE)
+
+  set(libs "")
+  if(PAR_DIST)
+    foreach(lib ${PAR_DIST})
+      append(LIBS ${HOME}/lib/${SYS_DIR_SUFFIX}/${lib})
+    endforeach()
+  endif()
+  set(${name}_DIST ${LIBS} PARENT_SCOPE)
+  set(${name}_INCLUDE_DIR ${HOME}/include PARENT_SCOPE)
+endfunction()
+
+
+macro(setGlobalCompilerSettings)
+  getarchitectureflags(${ARCH} CC_FLAGS LL_FLAGS)
+  add_compile_options(${CC_FLAGS})
+  if(MSVC)
+    # Disable useless MSVC warnings suggesting nonportable "secure" alternatives.
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+    # Disable warning about osx file format
+    add_compile_options(/wd4335)
+  else()
+    add_compile_options(-O2)
+      if(APPLE)
+        message(STATUS "IMPORTANT NOTE FOR OSX")
+        message(STATUS "When adding a new version of a solver library (especially gurobi), check that `otool -L libname.dylib` gives the library itself referenced as @rpath/libname.dylib")
+        message(STATUS "If not, change it with (considering library 'solverx.dylib'")
+        message(STATUS "install_name_tool -id @rpath/solverx.dylib ~/dev/libs/solverx.dylib")
+        message(STATUS "Also check that the solver libraries check in rpath for its dependent libraries (if any), in case change them with:")
+        message(STATUS "install_name_tool -change reqlib @rpath/reqlib solverx.dylib")
+      else()
+        message(STATUS "IMPORTANT NOTE FOR LINUX")
+        message(STATUS "When adding a new version of a solver library, check that it has the correct RPATH.")
+        message(STATUS "If not, change it with:")
+        message(STATUS "chrpath -r\"\$ORIGIN/\" solverx.so")
+        message(STATUS "or")
+        message(STATUS "patchelf --set-rpath '$ORIGIN/' solverx.so")
+      endif()
+  endif()
+endmacro()
+
+
+
+function(defineSolver solvername version)
+  cmake_parse_arguments(PAR "EXTERNALBUILD" "SRCDIR;ASL" "SOURCES;LIBS;INCLUDE;OPTIONS;DEFS;DIST;BUILDLIB" ${ARGN})
+  # Append directory if needed to all sources
+  set(src "")
+  foreach(s ${PAR_SOURCES})
+    if(PAR_SRCDIR)
+      set(s ${PAR_SRCDIR}/${s})
+      set(${solvername}_DRIVER_README "${PAR_SRCDIR}/README.${solvername}.txt" PARENT_SCOPE)
+      set(${solvername}_DRIVER_CHANGELOG "${PAR_SRCDIR}/CHANGES.${solvername}.md" PARENT_SCOPE)
+    endif()
+    # Help cmake figure out that .c0 files are C
+    if(${s} MATCHES ".c0")
+      set_source_files_properties(${s} PROPERTIES LANGUAGE C)
+    endif()
+    set(src ${src} ${s})
+  endforeach()
+
+  if((NOT WIN32) AND (${PAR_ASL} MATCHES asl2-dynrt))
+    set(PAR_ASL "asl2")
+  endif()
+  if((NOT ${ARCH} EQUAL 64) AND (${PAR_ASL} MATCHES asl2-large))
+    set(PAR_ASL asl2)
+  endif()
+
+
+  set(SOLVER_NAMES ${SOLVER_NAMES} ${solvername} PARENT_SCOPE)
+  set(${solvername}_DRIVER_DIR ${PAR_SRCDIR} PARENT_SCOPE) 
+  set(${solvername}_DRIVER_SOURCES ${src} PARENT_SCOPE)
+  set(${solvername}_DRIVER_VERSION ${version} PARENT_SCOPE)
+  set(${solvername}_DRIVER_LIBS ${PAR_LIBS} PARENT_SCOPE)
+  set(${solvername}_DRIVER_DIST ${PAR_DIST} PARENT_SCOPE)
+  set(${solvername}_DRIVER_ASL ${PAR_ASL} PARENT_SCOPE)
+  set(${solvername}_DRIVER_INCLUDE_DIRS ${PAR_INCLUDE} PARENT_SCOPE)
+  set(${solvername}_DRIVER_COMPILE_OPTIONS ${PAR_OPTIONS} PARENT_SCOPE)
+  set(${solvername}_DRIVER_PREPROCESSOR_DEFS ${PAR_DEFS} PARENT_SCOPE)
+  if(DEFINED PAR_BUILDLIB)
+    set(${solvername}_DRIVER_BUILDLIB ${PAR_BUILDLIB} PARENT_SCOPE)
+  endif()
+  if(${PAR_EXTERNALBUILD})
+      set(${solvername}_DRIVER_EXTERNALBUILD TRUE PARENT_SCOPE)
+  else()
+      set(${solvername}_DRIVER_EXTERNALBUILD FALSE PARENT_SCOPE)
+  endif()
+  if(DEFINED NEEDED_ASL)
+  if(NOT ${PAR_ASL} IN_LIST NEEDED_ASL)
+      set(NEEDED_ASL ${NEEDED_ASL} ${PAR_ASL} PARENT_SCOPE)
+  endif()
+  else()
+  set(NEEDED_ASL ${PAR_ASL} PARENT_SCOPE)
+  endif()
+endfunction()
+
+function(parseCommandLine)
+  # Reset cache
+  set(BUILD "" CACHE STRING "Comma-separated list of solver drivers to build,  set to \"all\" to build all")
+  if (BUILD)
+    if (BUILD STREQUAL all)
+      message(STATUS "Building all solvers:")
+       # Disable all
+      foreach(s ${SOLVER_NAMES})
+        set(ENABLE_${s} ON PARENT_SCOPE)
+        message(STATUS ${s})
+      endforeach()
+    else()
+      string(REGEX MATCHALL "[^,]+" SOLVERS_TOBUILD "${BUILD}")
+      # Disable all
+      foreach(s ${SOLVER_NAMES})
+        set(ENABLE_${s} OFF PARENT_SCOPE)
+      endforeach()
+      # Enable only the ones specified
+      foreach(s ${SOLVERS_TOBUILD})
+        if (NOT ${s} IN_LIST SOLVER_NAMES)
+          message(FATAL_ERROR  "${s} is not a valid solver name.")
+        endif()
+        set(ENABLE_${s} ON PARENT_SCOPE)
+      endforeach()
+    endif()
+else()
+  message(FATAL_ERROR "Specify the solvers to build with -DBUILD=solvername1,..,solvernamen or -DBUILD=all")
+endif()
+endfunction()
+
+function(checkSolver name)
+  message(CHECK_START "Checking dependencies for ${name}")
+  foreach(req ${${name}_DRIVER_LIBS} ${${name}_DRIVER_INCLUDE_DIRS} ${${name}_DRIVER_DIST})
+    if((NOT EXISTS ${req}) AND (NOT TARGET ${req}))
+       message(CHECK_FAIL "requirement ${req} not found.")
+       return()
+    endif()
+  endforeach()
+  message(CHECK_PASS "found")
+endfunction()
+
+function(setLinkProperties solvername targetname)
+ setarchitectureflags(${ARCH} ${targetname})
+  if(NOT MSVC)
+    target_compile_options(${targetname} PRIVATE -O2)
+    set_target_properties(${targetname} PROPERTIES LINK_FLAGS_RELEASE -s)
+ else()
+      if(${asl} MATCHES "dynrt")
+        target_compile_options(${targetname} PRIVATE /MD$<$<CONFIG:Debug>:d>)
+    else()
+        target_compile_options(${targetname} PRIVATE /MT$<$<CONFIG:Debug>:d>)
+    endif()
+  endif()
+  if(LINUX)
+      set_target_properties(${targetname} PROPERTIES
+      BUILD_WITH_INSTALL_RPATH TRUE 
+      INSTALL_RPATH ".:$ORIGIN/")
+  endif()
+  if(APPLE)
+      set_target_properties(${targetname} PROPERTIES 
+        BUILD_WITH_INSTALL_RPATH TRUE 
+        BUILD_WITH_INSTALL_NAME_DIR TRUE
+        INSTALL_RPATH "@executable_path/.")
+       add_custom_command(TARGET ${targetname} POST_BUILD
+          COMMAND ${CMAKE_SOURCE_DIR}/support/toRpath.sh $<TARGET_FILE:${targetname}> ${${solvername}_DRIVER_DIST}
+         COMMENT "Calling script to fix dependencies of target ${targetname}")
+  endif()
+endfunction()
+
+function(createSolverTarget name)
+  if(${${name}_DRIVER_EXTERNALBUILD})
+    add_subdirectory(${${name}_DRIVER_DIR})
+    return()
+  endif()
+  
+  if(DEFINED ${name}_DRIVER_BUILDLIB)
+    add_subdirectory(${${name}_DRIVER_DIR})
+  endif()
+
+  add_executable(${name} ${${name}_DRIVER_SOURCES})
+  # Find link libraries
+  find_package(Threads)
+  set(SYSLIBS ${CMAKE_THREAD_LIBS_INIT}   )
+  if(${CMAKE_DL_LIBS})
+    append(SYSLIBS ${CMAKE_DL_LIBS})
+  endif()
+  if(LINUX)
+    append(SYSLIBS rt)
+  endif()
+  target_link_libraries(${name} ${SYSLIBS} ${${name}_DRIVER_ASL} ${${name}_DRIVER_LIBS} ${${name}_DRIVER_BUILDLIB})
+    if(${name}_DRIVER_COMPILE_OPTIONS)
+        target_compile_options(${name} PRIVATE ${${name}_DRIVER_COMPILE_OPTIONS})
+    endif()
+   set(PREPROCDEFS YYYYMMDD=${${name}_DRIVER_VERSION})
+   if(${name}_DRIVER_PREPROCESSOR_DEFS)
+        append(PREPROCDEFS ${${name}_DRIVER_PREPROCESSOR_DEFS})
+    endif()
+    target_compile_definitions(${name} PUBLIC ${PREPROCDEFS})
+
+  if(${${name}_DRIVER_ASL} MATCHES "asl2")
+    set(ASLINCLUDE ${ASL2_INCLUDE_DIRS})
+  else()
+    set(ASLINCLUDE ${ASL_INCLUDE_DIRS})
+  endif()
+
+
+    if(${name}_DRIVER_INCLUDE_DIRS)
+        target_include_directories(${name} PUBLIC ${${name}_DRIVER_INCLUDE_DIRS})
+    endif()
+    
+    set(BUILDING_SOLVERS ${BUILDING_SOLVERS} ${name} PARENT_SCOPE)
+    setLinkProperties(${name} ${name})
+    # Add documentation
+    target_sources(${name} PRIVATE  ${${name}_DRIVER_CHANGELOG} ${${name}_DRIVER_README})
+    add_to_source_group(docs Docs "" ${${name}_DRIVER_CHANGELOG} ${${name}_DRIVER_README})
+
+    # Copy dependencies to binary dir (for testing)
+    CopyDependenciesToBin(${name} ${name})
+endfunction()
+
+
+function(CopyDependenciesToBin solvername targetname)
+  foreach(dep ${${solvername}_DRIVER_DIST})
+      add_custom_command(
+            TARGET ${targetname} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy ${dep}
+                    $<TARGET_FILE_DIR:${targetname}>
+            COMMENT "Copying ${dep} to binary directory for target ${targetname}\n")
+  endforeach()
+endfunction()
+
+
