@@ -53,3 +53,5 @@ dkms.conf
 /.vs
 source/blas/blas.vcxproj.user
 /source/blas/x64
+source/block/block.vcxproj.user
+/source/block/x64
