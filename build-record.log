@@ -23,3 +23,12 @@ VS2019 build record
 |C| ieee-utils
 |C| integration
 |C| interpolation
+|C| linalg
+
+===============
+TO INTEGRAtion
+===============
+
+libgsl
+libgsl-dll
+
