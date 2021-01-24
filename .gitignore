@@ -95,3 +95,5 @@ source/block/block.vcxproj.user
 /source/interpolation/interpolation.vcxproj.user
 /source/linalg/x64
 /source/linalg/linalg.vcxproj.user
+/source/matrix/x64
+/source/matrix/matrix.vcxproj.user
