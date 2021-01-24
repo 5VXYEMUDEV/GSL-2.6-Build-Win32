@@ -142,7 +142,7 @@ test_median(const double tol, const size_t n, gsl_rng * r)
   gsl_sort(x, 1, n);
   median2 = gsl_stats_median_from_sorted_data(x, 1, n);
 
-  gsl_test_rel(median1, median2, tol, "test_median n=%zu", n);
+  gsl_test_rel(median1, median2, tol, "test_median n="PCTZ"u", n);
 
   free(x);
 
@@ -163,7 +163,7 @@ test_mad(const double tol, const size_t n, gsl_rng * r)
   gsl_sort(x, 1, n);
   mad2 = gsl_stats_mad0(x, 1, n, work);
 
-  gsl_test_rel(mad1, mad2, tol, "test_mad n=%zu", n);
+  gsl_test_rel(mad1, mad2, tol, "test_mad n="PCTZ"u", n);
 
   free(x);
   free(work);
@@ -187,7 +187,7 @@ test_Sn(const double tol, const size_t n, gsl_rng * r)
   gsl_sort(x, 1, n);
   Sn2 = gsl_stats_Sn0_from_sorted_data(x, 1, n, work);
 
-  gsl_test_rel(Sn2, Sn1, tol, "test_Sn n=%zu", n);
+  gsl_test_rel(Sn2, Sn1, tol, "test_Sn n="PCTZ"u", n);
 
   free(x);
   free(work);
@@ -212,7 +212,7 @@ test_Qn(const double tol, const size_t n, gsl_rng * r)
   gsl_sort(x, 1, n);
   Qn2 = gsl_stats_Qn0_from_sorted_data(x, 1, n, work, work_int);
 
-  gsl_test_rel(Qn2, Qn1, tol, "test_Qn n=%zu", n);
+  gsl_test_rel(Qn2, Qn1, tol, "test_Qn n="PCTZ"u", n);
 
   free(x);
   free(work);

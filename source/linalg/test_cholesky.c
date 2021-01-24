@@ -287,7 +287,7 @@ test_mcholesky_decomp_eps(const int posdef, const int scale, const gsl_matrix * 
       /* ||E|| should be 0 */
       double norm = gsl_blas_dnrm2(E);
       s = norm != 0.0;
-      gsl_test(s, "%s: (%zu,%zu): ||E|| = %.12e",
+      gsl_test(s, "%s: ("PCTZ"u,"PCTZ"u): ||E|| = %.12e",
                desc, N, N, norm);
 
       /* check that D is decreasing */
@@ -301,7 +301,7 @@ test_mcholesky_decomp_eps(const int posdef, const int scale, const gsl_matrix * 
             s = 1;
         }
 
-      gsl_test(s, "%s: (%zu,%zu): D is not decreasing",
+      gsl_test(s, "%s: ("PCTZ"u,"PCTZ"u): D is not decreasing",
                desc, N, N);
     }
   
@@ -623,7 +623,7 @@ test_pcholesky_decomp_eps(const int scale, const gsl_matrix * m,
         s = 1;
     }
 
-  gsl_test(s, "%s: (%zu,%zu): D is not decreasing",
+  gsl_test(s, "%s: ("PCTZ"u,"PCTZ"u): D is not decreasing",
            desc, N, N);
   
   /* compute L and LT */
@@ -923,7 +923,7 @@ test_cholesky_band_decomp_eps(const size_t p, const gsl_matrix * m, const double
           double mij = gsl_matrix_get(m, i, j);
 
           gsl_test_rel(Aij, mij, eps,
-                       "%s: (p=%zu,N=%zu)[%lu,%lu]: %22.18g   %22.18g\n",
+                       "%s: (p="PCTZ"u,N="PCTZ"u)[%lu,%lu]: %22.18g   %22.18g\n",
                        desc, p, N, i, j, Aij, mij);
         }
     }
@@ -935,7 +935,7 @@ test_cholesky_band_decomp_eps(const size_t p, const gsl_matrix * m, const double
       double norm1 = gsl_matrix_get(V, N - 1, p);
 
       gsl_test_rel(norm1, norm1_expected, eps,
-                   "%s: (p=%zu,N=%zu) 1-norm: %22.18g   %22.18g\n",
+                   "%s: (p="PCTZ"u,N="PCTZ"u) 1-norm: %22.18g   %22.18g\n",
                    desc, p, N, norm1, norm1_expected);
     }
 
@@ -945,7 +945,7 @@ test_cholesky_band_decomp_eps(const size_t p, const gsl_matrix * m, const double
   s += gsl_linalg_cholesky_rcond(A, &rcond_expected, work);
   s += gsl_linalg_cholesky_band_rcond(V, &rcond, work);
   gsl_test_rel(rcond, rcond_expected, eps,
-               "%s: (p=%zu,N=%zu) rcond: %22.18g   %22.18g\n",
+               "%s: (p="PCTZ"u,N="PCTZ"u) rcond: %22.18g   %22.18g\n",
                desc, p, N, rcond, rcond_expected);
 
   gsl_matrix_free(V);
@@ -1001,7 +1001,7 @@ test_cholesky_band_solve_eps(const size_t p, const gsl_matrix * m, const gsl_vec
       double yi = gsl_vector_get(sol, i);
 
       gsl_test_rel(xi, yi, eps,
-                   "%s: p=%zu N=%zu [%lu]: %22.18g   %22.18g\n",
+                   "%s: p="PCTZ"u N="PCTZ"u [%lu]: %22.18g   %22.18g\n",
                    desc, p, N, i, xi, yi);
     }
 
@@ -1069,7 +1069,7 @@ test_cholesky_band_invert_eps(const size_t p, const gsl_matrix * m, const double
           double cij = gsl_matrix_get(c, i, j);
           double expected = (i == j) ? 1.0 : 0.0;
 
-          gsl_test_rel(cij, expected, eps, "%s (p=%zu,N=%zu)[%lu,%lu]: %22.18g   %22.18g\n",
+          gsl_test_rel(cij, expected, eps, "%s (p="PCTZ"u,N="PCTZ"u)[%lu,%lu]: %22.18g   %22.18g\n",
                        desc, p, N, i, j, cij, expected);
         }
     }

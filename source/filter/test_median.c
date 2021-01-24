@@ -67,14 +67,14 @@ test_median_proc(const double tol, const size_t n, const size_t K,
   gsl_filter_median(etype, x, z, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu K=%zu endtype=%u median random", n, K, etype);
+  sprintf(buf, "n="PCTZ"u K="PCTZ"u endtype=%u median random", n, K, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = median(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_filter_median(etype, z, z, w);
 
-  sprintf(buf, "n=%zu K=%zu endtype=%u median random in-place", n, K, etype);
+  sprintf(buf, "n="PCTZ"u K="PCTZ"u endtype=%u median random in-place", n, K, etype);
   compare_vectors(tol, z, y, buf);
 
   gsl_vector_free(x);

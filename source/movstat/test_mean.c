@@ -76,20 +76,20 @@ test_mean_proc(const double tol, const size_t n, const size_t H, const size_t J,
   gsl_movstat_mean(etype, x, z, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u mean random", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u mean random", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = mean(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_movstat_mean(etype, z, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u mean random in-place", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u mean random in-place", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = mean(x) with user-defined function */
   gsl_movstat_apply(etype, &F, x, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u mean user", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u mean user", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   gsl_movstat_free(w);

@@ -1,0 +1,404 @@
+     Expanded 4 lists in libgsl/libgsl.vcxproj.
+===> libgsl/libgsl.vcxproj created
+     Expanded 4 lists in libgsl-dll/libgsl-dll.vcxproj.
+===> libgsl-dll/libgsl-dll.vcxproj created
+====> Copied 10 header files
+Processing ampl...
+**** Can't open automake file: Makefile.am
+**** Can't find lib.*_la_SOURCES target in Makefile.am
+**** Can't open automake file: Makefile.am
+**** Can't find test_SOURCES target in Makefile.am
+**** Can't open automake file: Makefile.am
+**** Can't find pkginclude_HEADERS target in Makefile.am
+
+Processing blas...
+     Expanded 1 lists in blas.vcxproj.
+===> blas.vcxproj created
+**** Can't find test_SOURCES target in Makefile.am
+====> Copied 2 header files
+
+Processing block...
+     Expanded 1 lists in block.vcxproj.
+===> block.vcxproj created
+     Expanded 1 lists in ../../tests/test-block/test-block.vcxproj.
+===> ../../tests/test-block/test-block.vcxproj created
+====> Copied 16 header files
+
+Processing bspline...
+     Expanded 1 lists in bspline.vcxproj.
+===> bspline.vcxproj created
+     Expanded 1 lists in ../../tests/test-bspline/test-bspline.vcxproj.
+===> ../../tests/test-bspline/test-bspline.vcxproj created
+====> Copied 1 header files
+
+Processing bst...
+     Expanded 1 lists in bst.vcxproj.
+===> bst.vcxproj created
+     Expanded 1 lists in ../../tests/test-bst/test-bst.vcxproj.
+===> ../../tests/test-bst/test-bst.vcxproj created
+====> Copied 4 header files
+
+Processing cblas...
+     Expanded 1 lists in cblas.vcxproj.
+===> cblas.vcxproj created
+     Expanded 1 lists in ../../tests/test-cblas/test-cblas.vcxproj.
+===> ../../tests/test-cblas/test-cblas.vcxproj created
+====> Copied 1 header files
+
+Processing cdf...
+     Expanded 1 lists in cdf.vcxproj.
+===> cdf.vcxproj created
+     Expanded 1 lists in ../../tests/test-cdf/test-cdf.vcxproj.
+===> ../../tests/test-cdf/test-cdf.vcxproj created
+====> Copied 1 header files
+
+Processing cheb...
+     Expanded 1 lists in cheb.vcxproj.
+===> cheb.vcxproj created
+     Expanded 1 lists in ../../tests/test-cheb/test-cheb.vcxproj.
+===> ../../tests/test-cheb/test-cheb.vcxproj created
+====> Copied 1 header files
+
+Processing combination...
+     Expanded 1 lists in combination.vcxproj.
+===> combination.vcxproj created
+     Expanded 1 lists in ../../tests/test-combination/test-combination.vcxproj.
+===> ../../tests/test-combination/test-combination.vcxproj created
+====> Copied 1 header files
+
+Processing complex...
+     Expanded 1 lists in complex.vcxproj.
+===> complex.vcxproj created
+     Expanded 1 lists in ../../tests/test-complex/test-complex.vcxproj.
+===> ../../tests/test-complex/test-complex.vcxproj created
+====> Copied 2 header files
+
+Processing deriv...
+     Expanded 1 lists in deriv.vcxproj.
+===> deriv.vcxproj created
+     Expanded 1 lists in ../../tests/test-deriv/test-deriv.vcxproj.
+===> ../../tests/test-deriv/test-deriv.vcxproj created
+====> Copied 1 header files
+
+Processing dht...
+     Expanded 1 lists in dht.vcxproj.
+===> dht.vcxproj created
+     Expanded 1 lists in ../../tests/test-dht/test-dht.vcxproj.
+===> ../../tests/test-dht/test-dht.vcxproj created
+====> Copied 1 header files
+
+Processing diff...
+     Expanded 1 lists in diff.vcxproj.
+===> diff.vcxproj created
+     Expanded 1 lists in ../../tests/test-diff/test-diff.vcxproj.
+===> ../../tests/test-diff/test-diff.vcxproj created
+====> Copied 1 header files
+
+Processing eigen...
+     Expanded 1 lists in eigen.vcxproj.
+===> eigen.vcxproj created
+     Expanded 1 lists in ../../tests/test-eigen/test-eigen.vcxproj.
+===> ../../tests/test-eigen/test-eigen.vcxproj created
+====> Copied 1 header files
+
+Processing err...
+     Expanded 1 lists in err.vcxproj.
+===> err.vcxproj created
+     Expanded 1 lists in ../../tests/test-err/test-err.vcxproj.
+===> ../../tests/test-err/test-err.vcxproj created
+====> Copied 2 header files
+
+Processing fft...
+     Expanded 1 lists in fft.vcxproj.
+===> fft.vcxproj created
+     Expanded 1 lists in ../../tests/test-fft/test-fft.vcxproj.
+===> ../../tests/test-fft/test-fft.vcxproj created
+====> Copied 9 header files
+
+Processing filter...
+     Expanded 1 lists in filter.vcxproj.
+===> filter.vcxproj created
+     Expanded 1 lists in ../../tests/test-filter/test-filter.vcxproj.
+===> ../../tests/test-filter/test-filter.vcxproj created
+====> Copied 1 header files
+
+Processing fit...
+     Expanded 1 lists in fit.vcxproj.
+===> fit.vcxproj created
+     Expanded 1 lists in ../../tests/test-fit/test-fit.vcxproj.
+===> ../../tests/test-fit/test-fit.vcxproj created
+====> Copied 1 header files
+
+Processing histogram...
+     Expanded 1 lists in histogram.vcxproj.
+===> histogram.vcxproj created
+     Expanded 1 lists in ../../tests/test-histogram/test-histogram.vcxproj.
+===> ../../tests/test-histogram/test-histogram.vcxproj created
+====> Copied 2 header files
+
+Processing ieee-utils...
+     Expanded 1 lists in ieee-utils.vcxproj.
+===> ieee-utils.vcxproj created
+     Expanded 1 lists in ../../tests/test-ieee-utils/test-ieee-utils.vcxproj.
+===> ../../tests/test-ieee-utils/test-ieee-utils.vcxproj created
+====> Copied 1 header files
+
+Processing integration...
+     Expanded 1 lists in integration.vcxproj.
+===> integration.vcxproj created
+     Expanded 1 lists in ../../tests/test-integration/test-integration.vcxproj.
+===> ../../tests/test-integration/test-integration.vcxproj created
+====> Copied 1 header files
+
+Processing interpolation...
+     Expanded 1 lists in interpolation.vcxproj.
+===> interpolation.vcxproj created
+     Expanded 1 lists in ../../tests/test-interpolation/test-interpolation.vcxproj.
+===> ../../tests/test-interpolation/test-interpolation.vcxproj created
+====> Copied 4 header files
+
+Processing linalg...
+     Expanded 1 lists in linalg.vcxproj.
+===> linalg.vcxproj created
+     Expanded 1 lists in ../../tests/test-linalg/test-linalg.vcxproj.
+===> ../../tests/test-linalg/test-linalg.vcxproj created
+====> Copied 1 header files
+
+Processing matrix...
+     Expanded 1 lists in matrix.vcxproj.
+===> matrix.vcxproj created
+     Expanded 1 lists in ../../tests/test-matrix/test-matrix.vcxproj.
+===> ../../tests/test-matrix/test-matrix.vcxproj created
+====> Copied 15 header files
+
+Processing min...
+     Expanded 1 lists in min.vcxproj.
+===> min.vcxproj created
+     Expanded 1 lists in ../../tests/test-min/test-min.vcxproj.
+===> ../../tests/test-min/test-min.vcxproj created
+====> Copied 1 header files
+
+Processing monte...
+     Expanded 1 lists in monte.vcxproj.
+===> monte.vcxproj created
+     Expanded 1 lists in ../../tests/test-monte/test-monte.vcxproj.
+===> ../../tests/test-monte/test-monte.vcxproj created
+====> Copied 4 header files
+
+Processing movstat...
+     Expanded 1 lists in movstat.vcxproj.
+===> movstat.vcxproj created
+     Expanded 1 lists in ../../tests/test-movstat/test-movstat.vcxproj.
+===> ../../tests/test-movstat/test-movstat.vcxproj created
+====> Copied 1 header files
+
+Processing multifit...
+     Expanded 1 lists in multifit.vcxproj.
+===> multifit.vcxproj created
+     Expanded 1 lists in ../../tests/test-multifit/test-multifit.vcxproj.
+===> ../../tests/test-multifit/test-multifit.vcxproj created
+====> Copied 2 header files
+
+Processing multifit_nlinear...
+     Expanded 1 lists in multifit_nlinear.vcxproj.
+===> multifit_nlinear.vcxproj created
+     Expanded 1 lists in ../../tests/test-multifit_nlinear/test-multifit_nlinear.vcxproj.
+===> ../../tests/test-multifit_nlinear/test-multifit_nlinear.vcxproj created
+====> Copied 1 header files
+
+Processing multilarge...
+     Expanded 1 lists in multilarge.vcxproj.
+===> multilarge.vcxproj created
+     Expanded 1 lists in ../../tests/test-multilarge/test-multilarge.vcxproj.
+===> ../../tests/test-multilarge/test-multilarge.vcxproj created
+====> Copied 1 header files
+
+Processing multilarge_nlinear...
+     Expanded 1 lists in multilarge_nlinear.vcxproj.
+===> multilarge_nlinear.vcxproj created
+     Expanded 1 lists in ../../tests/test-multilarge_nlinear/test-multilarge_nlinear.vcxproj.
+===> ../../tests/test-multilarge_nlinear/test-multilarge_nlinear.vcxproj created
+====> Copied 1 header files
+
+Processing multimin...
+     Expanded 1 lists in multimin.vcxproj.
+===> multimin.vcxproj created
+     Expanded 1 lists in ../../tests/test-multimin/test-multimin.vcxproj.
+===> ../../tests/test-multimin/test-multimin.vcxproj created
+====> Copied 1 header files
+
+Processing multiroots...
+     Expanded 1 lists in multiroots.vcxproj.
+===> multiroots.vcxproj created
+     Expanded 1 lists in ../../tests/test-multiroots/test-multiroots.vcxproj.
+===> ../../tests/test-multiroots/test-multiroots.vcxproj created
+====> Copied 1 header files
+
+Processing multiset...
+     Expanded 1 lists in multiset.vcxproj.
+===> multiset.vcxproj created
+     Expanded 1 lists in ../../tests/test-multiset/test-multiset.vcxproj.
+===> ../../tests/test-multiset/test-multiset.vcxproj created
+====> Copied 1 header files
+
+Processing ntuple...
+     Expanded 1 lists in ntuple.vcxproj.
+===> ntuple.vcxproj created
+     Expanded 1 lists in ../../tests/test-ntuple/test-ntuple.vcxproj.
+===> ../../tests/test-ntuple/test-ntuple.vcxproj created
+====> Copied 1 header files
+
+Processing ode-initval...
+     Expanded 1 lists in ode-initval.vcxproj.
+===> ode-initval.vcxproj created
+     Expanded 1 lists in ../../tests/test-ode-initval/test-ode-initval.vcxproj.
+===> ../../tests/test-ode-initval/test-ode-initval.vcxproj created
+====> Copied 1 header files
+
+Processing ode-initval2...
+     Expanded 1 lists in ode-initval2.vcxproj.
+===> ode-initval2.vcxproj created
+     Expanded 1 lists in ../../tests/test-ode-initval2/test-ode-initval2.vcxproj.
+===> ../../tests/test-ode-initval2/test-ode-initval2.vcxproj created
+====> Copied 1 header files
+
+Processing permutation...
+     Expanded 1 lists in permutation.vcxproj.
+===> permutation.vcxproj created
+     Expanded 1 lists in ../../tests/test-permutation/test-permutation.vcxproj.
+===> ../../tests/test-permutation/test-permutation.vcxproj created
+====> Copied 46 header files
+
+Processing poly...
+     Expanded 1 lists in poly.vcxproj.
+===> poly.vcxproj created
+     Expanded 1 lists in ../../tests/test-poly/test-poly.vcxproj.
+===> ../../tests/test-poly/test-poly.vcxproj created
+====> Copied 1 header files
+
+Processing qrng...
+     Expanded 1 lists in qrng.vcxproj.
+===> qrng.vcxproj created
+     Expanded 1 lists in ../../tests/test-qrng/test-qrng.vcxproj.
+===> ../../tests/test-qrng/test-qrng.vcxproj created
+====> Copied 1 header files
+
+Processing randist...
+     Expanded 1 lists in randist.vcxproj.
+===> randist.vcxproj created
+     Expanded 1 lists in ../../tests/test-randist/test-randist.vcxproj.
+===> ../../tests/test-randist/test-randist.vcxproj created
+====> Copied 1 header files
+
+Processing rng...
+     Expanded 1 lists in rng.vcxproj.
+===> rng.vcxproj created
+     Expanded 1 lists in ../../tests/test-rng/test-rng.vcxproj.
+===> ../../tests/test-rng/test-rng.vcxproj created
+====> Copied 1 header files
+
+Processing roots...
+     Expanded 1 lists in roots.vcxproj.
+===> roots.vcxproj created
+     Expanded 1 lists in ../../tests/test-roots/test-roots.vcxproj.
+===> ../../tests/test-roots/test-roots.vcxproj created
+====> Copied 1 header files
+
+Processing rstat...
+     Expanded 1 lists in rstat.vcxproj.
+===> rstat.vcxproj created
+     Expanded 1 lists in ../../tests/test-rstat/test-rstat.vcxproj.
+===> ../../tests/test-rstat/test-rstat.vcxproj created
+====> Copied 1 header files
+
+Processing siman...
+     Expanded 1 lists in siman.vcxproj.
+===> siman.vcxproj created
+     Expanded 1 lists in ../../tests/test-siman/test-siman.vcxproj.
+===> ../../tests/test-siman/test-siman.vcxproj created
+====> Copied 1 header files
+
+Processing sort...
+     Expanded 1 lists in sort.vcxproj.
+===> sort.vcxproj created
+     Expanded 1 lists in ../../tests/test-sort/test-sort.vcxproj.
+===> ../../tests/test-sort/test-sort.vcxproj created
+====> Copied 25 header files
+
+Processing spblas...
+     Expanded 1 lists in spblas.vcxproj.
+===> spblas.vcxproj created
+     Expanded 1 lists in ../../tests/test-spblas/test-spblas.vcxproj.
+===> ../../tests/test-spblas/test-spblas.vcxproj created
+====> Copied 1 header files
+
+Processing specfunc...
+     Expanded 1 lists in specfunc.vcxproj.
+===> specfunc.vcxproj created
+     Expanded 1 lists in ../../tests/test-specfunc/test-specfunc.vcxproj.
+===> ../../tests/test-specfunc/test-specfunc.vcxproj created
+====> Copied 34 header files
+
+Processing splinalg...
+     Expanded 1 lists in splinalg.vcxproj.
+===> splinalg.vcxproj created
+     Expanded 1 lists in ../../tests/test-splinalg/test-splinalg.vcxproj.
+===> ../../tests/test-splinalg/test-splinalg.vcxproj created
+====> Copied 1 header files
+
+Processing spmatrix...
+     Expanded 1 lists in spmatrix.vcxproj.
+===> spmatrix.vcxproj created
+     Expanded 1 lists in ../../tests/test-spmatrix/test-spmatrix.vcxproj.
+===> ../../tests/test-spmatrix/test-spmatrix.vcxproj created
+====> Copied 15 header files
+
+Processing statistics...
+     Expanded 1 lists in statistics.vcxproj.
+===> statistics.vcxproj created
+     Expanded 1 lists in ../../tests/test-statistics/test-statistics.vcxproj.
+===> ../../tests/test-statistics/test-statistics.vcxproj created
+====> Copied 12 header files
+
+Processing sum...
+     Expanded 1 lists in sum.vcxproj.
+===> sum.vcxproj created
+     Expanded 1 lists in ../../tests/test-sum/test-sum.vcxproj.
+===> ../../tests/test-sum/test-sum.vcxproj created
+====> Copied 1 header files
+
+Processing sys...
+     Expanded 1 lists in sys.vcxproj.
+===> sys.vcxproj created
+     Expanded 1 lists in ../../tests/test-sys/test-sys.vcxproj.
+===> ../../tests/test-sys/test-sys.vcxproj created
+====> Copied 1 header files
+
+Processing test...
+     Expanded 1 lists in test.vcxproj.
+===> test.vcxproj created
+**** Can't find test_SOURCES target in Makefile.am
+====> Copied 1 header files
+
+Processing utils...
+     Expanded 1 lists in utils.vcxproj.
+===> utils.vcxproj created
+**** Can't find test_SOURCES target in Makefile.am
+**** Can't find pkginclude_HEADERS target in Makefile.am
+
+Processing vector...
+     Expanded 1 lists in vector.vcxproj.
+===> vector.vcxproj created
+     Expanded 1 lists in ../../tests/test-vector/test-vector.vcxproj.
+===> ../../tests/test-vector/test-vector.vcxproj created
+====> Copied 16 header files
+
+Processing wavelet...
+     Expanded 1 lists in wavelet.vcxproj.
+===> wavelet.vcxproj created
+     Expanded 1 lists in ../../tests/test-wavelet/test-wavelet.vcxproj.
+===> ../../tests/test-wavelet/test-wavelet.vcxproj created
+====> Copied 2 header files
+
+====> Appended text successfully to gsl_math.h
+====> Appended text successfully to gsl_test.h

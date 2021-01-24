@@ -2,6 +2,8 @@
 
 #if HAVE_GNUSPARC_IEEE_INTERFACE
 #include "fp-gnusparc.c"
+#elif HAVE_WINX64_IEEE_INTERFACE
+#include "fp-winx64.c"
 #elif HAVE_GNUM68K_IEEE_INTERFACE
 #include "fp-gnum68k.c"
 #elif HAVE_GNUPPC_IEEE_INTERFACE

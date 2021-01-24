@@ -173,9 +173,9 @@ test_shaw_system_l(gsl_rng *rng_p, const size_t n, const size_t p,
 
       /* solve regularized system and check for consistent rho/eta values */
       gsl_multifit_linear_solve(lami, X, y, c, &rnorm, &snorm, work);
-      gsl_test_rel(rhoi, rnorm, tol3, "shaw rho n=%zu p=%zu lambda=%e",
+      gsl_test_rel(rhoi, rnorm, tol3, "shaw rho n="PCTZ"u p="PCTZ"u lambda=%e",
                    n, p, lami);
-      gsl_test_rel(etai, snorm, tol1, "shaw eta n=%zu p=%zu lambda=%e",
+      gsl_test_rel(etai, snorm, tol1, "shaw eta n="PCTZ"u p="PCTZ"u lambda=%e",
                    n, p, lami);
     }
 
@@ -188,7 +188,7 @@ test_shaw_system_l(gsl_rng *rng_p, const size_t n, const size_t p,
   if (lambda_expected > 0.0)
     {
       gsl_test_rel(lambda, lambda_expected, tol1,
-                   "shaw: n=%zu p=%zu L-curve corner lambda",
+                   "shaw: n="PCTZ"u p="PCTZ"u L-curve corner lambda",
                    n, p);
     }
 
@@ -201,11 +201,11 @@ test_shaw_system_l(gsl_rng *rng_p, const size_t n, const size_t p,
 
   /* test rnorm value */
   gsl_test_rel(rnorm, gsl_blas_dnrm2(r), tol2,
-               "shaw: n=%zu p=%zu rnorm", n, p);
+               "shaw: n="PCTZ"u p="PCTZ"u rnorm", n, p);
 
   /* test snorm value */
   gsl_test_rel(snorm, gsl_blas_dnrm2(c), tol2,
-               "shaw: n=%zu p=%zu snorm", n, p);
+               "shaw: n="PCTZ"u p="PCTZ"u snorm", n, p);
 
   gsl_matrix_free(X);
   gsl_matrix_free(cov);
@@ -274,7 +274,7 @@ test_shaw_system_gcv(gsl_rng *rng_p, const size_t n, const size_t p,
           double Gi = gsl_vector_get(G, i);
           double Gi_expected = shaw_gcv_G(lami, X, y, work);
 
-          gsl_test_rel(Gi, Gi_expected, tol3, "shaw[%zu,%zu] gcv G i=%zu lambda=%e",
+          gsl_test_rel(Gi, Gi_expected, tol3, "shaw["PCTZ"u,"PCTZ"u] gcv G i="PCTZ"u lambda=%e",
                        n, p, i, lami);
         }
     }
@@ -283,7 +283,7 @@ test_shaw_system_gcv(gsl_rng *rng_p, const size_t n, const size_t p,
   if (lambda_expected > 0.0)
     {
       gsl_test_rel(lambda, lambda_expected, tol2,
-                   "shaw gcv: n=%zu p=%zu lambda",
+                   "shaw gcv: n="PCTZ"u p="PCTZ"u lambda",
                    n, p);
     }
 
@@ -296,11 +296,11 @@ test_shaw_system_gcv(gsl_rng *rng_p, const size_t n, const size_t p,
 
   /* test rnorm value */
   gsl_test_rel(rnorm, gsl_blas_dnrm2(r), tol2,
-               "shaw gcv: n=%zu p=%zu rnorm", n, p);
+               "shaw gcv: n="PCTZ"u p="PCTZ"u rnorm", n, p);
 
   /* test snorm value */
   gsl_test_rel(snorm, gsl_blas_dnrm2(c), tol2,
-               "shaw gcv: n=%zu p=%zu snorm", n, p);
+               "shaw gcv: n="PCTZ"u p="PCTZ"u snorm", n, p);
 
   gsl_matrix_free(X);
   gsl_matrix_free(cov);

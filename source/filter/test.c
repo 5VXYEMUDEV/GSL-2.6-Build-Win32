@@ -43,7 +43,7 @@ compare_vectors(const double tol, const gsl_vector * v, const gsl_vector * expec
       double vi = gsl_vector_get(v, i);
       double ui = gsl_vector_get(expected, i);
 
-      gsl_test_rel(vi, ui, tol, "%s i=%zu", desc, i);
+      gsl_test_rel(vi, ui, tol, "%s i="PCTZ"u", desc, i);
     }
 }
 

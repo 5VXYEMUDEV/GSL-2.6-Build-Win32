@@ -28,7 +28,7 @@
 #define ROMBERG_PRINT_ROW(i, r) \
   do { \
     size_t jj; \
-    fprintf(stderr, "R[%zu] = ", i); \
+    fprintf(stderr, "R["PCTZ"u] = ", i); \
     for (jj = 0; jj <= i; ++jj) \
       fprintf(stderr, "%.8e ", r[jj]); \
     fprintf(stderr, "\n"); \

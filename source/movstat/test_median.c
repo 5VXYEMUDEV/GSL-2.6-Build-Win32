@@ -66,7 +66,7 @@ test_median_root(const double tol, const size_t n, const size_t K, const gsl_mov
   /* compute y = median(x) and test y = x */
   gsl_movstat_median(etype, x, y, w);
 
-  sprintf(buf, "n=%zu K=%zu endtype=%u SMF root sequence", n, K, etype);
+  sprintf(buf, "n="PCTZ"u K="PCTZ"u endtype=%u SMF root sequence", n, K, etype);
   compare_vectors(tol, y, x, buf);
 
   gsl_vector_free(x);
@@ -110,20 +110,20 @@ test_median_proc(const double tol, const size_t n, const size_t H, const size_t 
   gsl_movstat_median(etype, x, z, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u median random", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u median random", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = median(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_movstat_median(etype, z, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u median random in-place", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u median random in-place", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = median(x) with user-defined function */
   gsl_movstat_apply(etype, &F, x, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u median user", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u median user", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   gsl_vector_free(x);

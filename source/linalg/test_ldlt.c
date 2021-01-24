@@ -252,7 +252,7 @@ test_ldlt_band_decomp_eps(const size_t p, const gsl_matrix * m, const double eps
           double mij = gsl_matrix_get(m, i, j);
 
           gsl_test_rel(Aij, mij, eps,
-                       "%s: (p=%zu,N=%zu)[%lu,%lu]: %22.18g   %22.18g\n",
+                       "%s: (p="PCTZ"u,N="PCTZ"u)[%lu,%lu]: %22.18g   %22.18g\n",
                        desc, p, N, i, j, Aij, mij);
         }
     }
@@ -264,7 +264,7 @@ test_ldlt_band_decomp_eps(const size_t p, const gsl_matrix * m, const double eps
       double norm1 = gsl_matrix_get(V, N - 1, p);
 
       gsl_test_rel(norm1, norm1_expected, eps,
-                   "%s: (p=%zu,N=%zu) 1-norm: %22.18g   %22.18g\n",
+                   "%s: (p="PCTZ"u,N="PCTZ"u) 1-norm: %22.18g   %22.18g\n",
                    desc, p, N, norm1, norm1_expected);
     }
 
@@ -274,7 +274,7 @@ test_ldlt_band_decomp_eps(const size_t p, const gsl_matrix * m, const double eps
   s += gsl_linalg_ldlt_rcond(A, &rcond_expected, work);
   s += gsl_linalg_ldlt_band_rcond(V, &rcond, work);
   gsl_test_rel(rcond, rcond_expected, eps,
-               "%s: (p=%zu,N=%zu) rcond: %22.18g   %22.18g\n",
+               "%s: (p="PCTZ"u,N="PCTZ"u) rcond: %22.18g   %22.18g\n",
                desc, p, N, rcond, rcond_expected);
 
   gsl_matrix_free(V);
@@ -331,7 +331,7 @@ test_ldlt_band_solve_eps(const size_t p, const gsl_matrix * m, const gsl_vector 
       double yi = gsl_vector_get(sol, i);
 
       gsl_test_rel(xi, yi, eps,
-                   "%s: p=%zu N=%zu [%lu]: %22.18g   %22.18g\n",
+                   "%s: p="PCTZ"u N="PCTZ"u [%lu]: %22.18g   %22.18g\n",
                    desc, p, N, i, xi, yi);
     }
 

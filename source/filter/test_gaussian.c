@@ -91,7 +91,7 @@ test_gaussian_kernel(const double alpha, const size_t K)
       gsl_filter_gaussian_kernel(alpha, order, 0, deriv);
       fdiff(kernel, deriv_fd);
 
-      sprintf(buf, "gaussian kernel order=%zu alpha=%g K=%zu", order, alpha, K);
+      sprintf(buf, "gaussian kernel order="PCTZ"u alpha=%g K="PCTZ"u", order, alpha, K);
       compare_vectors(1.0e-2, deriv_fd, deriv, buf);
 
       gsl_vector_memcpy(kernel, deriv);
@@ -121,14 +121,14 @@ test_gaussian_proc(const double tol, const double alpha, const size_t order, con
   gsl_filter_gaussian(etype, alpha, order, x, z, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu K=%zu endtype=%u alpha=%g order=%zu gaussian random", n, K, etype, alpha, order);
+  sprintf(buf, "n="PCTZ"u K="PCTZ"u endtype=%u alpha=%g order="PCTZ"u gaussian random", n, K, etype, alpha, order);
   compare_vectors(tol, z, y, buf);
 
   /* z = filter(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_filter_gaussian(etype, alpha, order, z, z, w);
 
-  sprintf(buf, "n=%zu K=%zu endtype=%u alpha=%g order=%zu gaussian random in-place", n, K, etype, alpha, order);
+  sprintf(buf, "n="PCTZ"u K="PCTZ"u endtype=%u alpha=%g order="PCTZ"u gaussian random in-place", n, K, etype, alpha, order);
   compare_vectors(tol, z, y, buf);
 
   gsl_filter_gaussian_free(w);
@@ -171,7 +171,7 @@ test_gaussian_deriv(const double alpha, const size_t n, const size_t K)
 
   for (i = 0; i < n; ++i)
     {
-      printf("%zu %.12e %.12e %.12e %.12e\n",
+      printf(PCTZ"u %.12e %.12e %.12e %.12e\n",
              i,
              gsl_vector_get(x, i),
              gsl_vector_get(dx, i),

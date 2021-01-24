@@ -162,19 +162,19 @@ check_traverser(const size_t n, const enum array_order order, gsl_bst_trav * tra
   prev = gsl_bst_trav_prev(trav);
   if (prev != NULL)
     {
-      gsl_test(*prev > data, "bst %s[n=%zu,order=%d] %s traverser ahead of %d, but should be ahead of %d",
+      gsl_test(*prev > data, "bst %s[n="PCTZ"u,order=%d] %s traverser ahead of %d, but should be ahead of %d",
                gsl_bst_name(w), n, order, desc, *prev, data);
     }
   gsl_bst_trav_next(trav);
 
   cur = gsl_bst_trav_cur(trav);
-  gsl_test(*cur != data, "bst %s[n=%zu,order=%d] %s traverser at %d, but should be at %d",
+  gsl_test(*cur != data, "bst %s[n="PCTZ"u,order=%d] %s traverser at %d, but should be at %d",
            gsl_bst_name(w), n, order, desc, *cur, data);
 
   next = gsl_bst_trav_next(trav);
   if (next != NULL)
     {
-      gsl_test(*next < data, "bst %s[n=%zu,order=%d] %s traverser behind %d, but should be behind %d",
+      gsl_test(*next < data, "bst %s[n="PCTZ"u,order=%d] %s traverser behind %d, but should be behind %d",
                gsl_bst_name(w), n, order, desc, *next, data);
     }
   gsl_bst_trav_prev(trav);
@@ -215,13 +215,13 @@ test_bst_int(const size_t n, const gsl_bst_type * T, const enum array_order orde
   for (i = 0; i < (int) n; ++i)
     {
       p = gsl_bst_insert(&data[i], w);
-      gsl_test(p != NULL, "bst_int %s[n=%zu,order=%d] insert i=%d", gsl_bst_name(w), n, order, i);
+      gsl_test(p != NULL, "bst_int %s[n="PCTZ"u,order=%d] insert i=%d", gsl_bst_name(w), n, order, i);
     }
 
   if (order != ORD_RANDOM_DUP)
     {
       nodes = gsl_bst_nodes(w);
-      gsl_test(nodes != n, "bst_int %s[n=%zu,order=%d] after insertion count = %zu/%zu",
+      gsl_test(nodes != n, "bst_int %s[n="PCTZ"u,order=%d] after insertion count = "PCTZ"u/"PCTZ"u",
                gsl_bst_name(w), n, order, nodes, n);
     }
 
@@ -229,11 +229,11 @@ test_bst_int(const size_t n, const gsl_bst_type * T, const enum array_order orde
   for (i = 0; i < (int) n; ++i)
     {
       p = gsl_bst_find(&data[i], w);
-      gsl_test(*p != data[i], "bst_int %s[n=%zu,order=%d] find [%d,%d]",
+      gsl_test(*p != data[i], "bst_int %s[n="PCTZ"u,order=%d] find [%d,%d]",
                gsl_bst_name(w), n, order, *p, data[i]);
 
       p = gsl_bst_trav_find(&data[i], &trav, w);
-      gsl_test(p == NULL, "bst_int %s[n=%zu,order=%d] trav_find unable to find item %d",
+      gsl_test(p == NULL, "bst_int %s[n="PCTZ"u,order=%d] trav_find unable to find item %d",
                gsl_bst_name(w), n, order, data[i]);
 
       check_traverser(n, order, &trav, data[i], "post-insertion", w);
@@ -246,17 +246,17 @@ test_bst_int(const size_t n, const gsl_bst_type * T, const enum array_order orde
     {
       int *q = gsl_bst_trav_cur(&trav);
 
-      gsl_test(*p != sorted_data[i], "bst_int %s[n=%zu,order=%d] traverse i=%d [%d,%d]",
+      gsl_test(*p != sorted_data[i], "bst_int %s[n="PCTZ"u,order=%d] traverse i=%d [%d,%d]",
                gsl_bst_name(w), n, order, i, *p, sorted_data[i]);
 
-      gsl_test(*p != *q, "bst_int %s[n=%zu,order=%d] traverse cur i=%d [%d,%d]",
+      gsl_test(*p != *q, "bst_int %s[n="PCTZ"u,order=%d] traverse cur i=%d [%d,%d]",
                gsl_bst_name(w), n, order, i, *p, *q);
 
       p = gsl_bst_trav_next(&trav);
       ++i;
     }
 
-  gsl_test(i != (int) n, "bst_int %s[n=%zu,order=%d] traverse number=%d",
+  gsl_test(i != (int) n, "bst_int %s[n="PCTZ"u,order=%d] traverse number=%d",
            gsl_bst_name(w), n, order, i);
 
   /* traverse tree in reverse order */
@@ -266,17 +266,17 @@ test_bst_int(const size_t n, const gsl_bst_type * T, const enum array_order orde
     {
       int *q = gsl_bst_trav_cur(&trav);
 
-      gsl_test(*p != sorted_data[i], "bst_int %s[n=%zu,order=%d] traverse reverse i=%d [%d,%d]",
+      gsl_test(*p != sorted_data[i], "bst_int %s[n="PCTZ"u,order=%d] traverse reverse i=%d [%d,%d]",
                gsl_bst_name(w), n, order, i, *p, sorted_data[i]);
 
-      gsl_test(*p != *q, "bst_int %s[n=%zu,order=%d] traverse reverse cur i=%d [%d,%d]",
+      gsl_test(*p != *q, "bst_int %s[n="PCTZ"u,order=%d] traverse reverse cur i=%d [%d,%d]",
                gsl_bst_name(w), n, order, i, *p, *q);
 
       p = gsl_bst_trav_prev(&trav);
       --i;
     }
 
-  gsl_test(i != -1, "bst_int %s[n=%zu,order=%d] traverse reverse number=%d",
+  gsl_test(i != -1, "bst_int %s[n="PCTZ"u,order=%d] traverse reverse number=%d",
            gsl_bst_name(w), n, order, i);
 
   /* test traversal during tree modifications */
@@ -291,11 +291,11 @@ test_bst_int(const size_t n, const gsl_bst_type * T, const enum array_order orde
         continue;
 
       p = gsl_bst_remove(&data_delete[i], w);
-      gsl_test(*p != data_delete[i], "bst_int %s[n=%zu,order=%d] remove i=%d [%d,%d]",
+      gsl_test(*p != data_delete[i], "bst_int %s[n="PCTZ"u,order=%d] remove i=%d [%d,%d]",
                gsl_bst_name(w), n, order, i, *p, data_delete[i]);
 
       p = gsl_bst_trav_copy(&y, &x);
-      gsl_test(*p != data[i], "bst_int %s[n=%zu,order=%d] copy i=%d [%d,%d]",
+      gsl_test(*p != data[i], "bst_int %s[n="PCTZ"u,order=%d] copy i=%d [%d,%d]",
                gsl_bst_name(w), n, order, i, *p, data[i]);
 
       /* re-insert item */
@@ -315,7 +315,7 @@ test_bst_int(const size_t n, const gsl_bst_type * T, const enum array_order orde
   gsl_bst_empty(w);
 
   nodes = gsl_bst_nodes(w);
-  gsl_test(nodes != 0, "bst_int %s[n=%zu,order=%d] empty count = %zu",
+  gsl_test(nodes != 0, "bst_int %s[n="PCTZ"u,order=%d] empty count = "PCTZ"u",
            gsl_bst_name(w), n, order, nodes);
 
   gsl_bst_free(w);

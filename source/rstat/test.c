@@ -76,20 +76,20 @@ test_basic(const size_t n, const double data[], const double tol)
   kurtosis = gsl_rstat_kurtosis(rstat_workspace_p);
   num      = gsl_rstat_n(rstat_workspace_p);
 
-  gsl_test_int(num, n, "n n=%zu" , n);
-  gsl_test_rel(mean, expected_mean, tol, "mean n=%zu", n);
-  gsl_test_rel(var, expected_var, tol, "variance n=%zu", n);
-  gsl_test_rel(sd, expected_sd, tol, "stddev n=%zu", n);
-  gsl_test_rel(sd_mean, expected_sd_mean, tol, "stddev_mean n=%zu", n);
-  gsl_test_rel(rms, expected_rms, tol, "rms n=%zu", n);
-  gsl_test_rel(skew, expected_skew, tol, "skew n=%zu", n);
-  gsl_test_rel(kurtosis, expected_kurtosis, tol, "kurtosis n=%zu", n);
+  gsl_test_int(num, n, "n n="PCTZ"u" , n);
+  gsl_test_rel(mean, expected_mean, tol, "mean n="PCTZ"u", n);
+  gsl_test_rel(var, expected_var, tol, "variance n="PCTZ"u", n);
+  gsl_test_rel(sd, expected_sd, tol, "stddev n="PCTZ"u", n);
+  gsl_test_rel(sd_mean, expected_sd_mean, tol, "stddev_mean n="PCTZ"u", n);
+  gsl_test_rel(rms, expected_rms, tol, "rms n="PCTZ"u", n);
+  gsl_test_rel(skew, expected_skew, tol, "skew n="PCTZ"u", n);
+  gsl_test_rel(kurtosis, expected_kurtosis, tol, "kurtosis n="PCTZ"u", n);
 
   status = gsl_rstat_reset(rstat_workspace_p);
   gsl_test_int(status, GSL_SUCCESS, "rstat returned success");
   num = gsl_rstat_n(rstat_workspace_p);
 
-  gsl_test_int(num, 0, "n n=%zu" , n);
+  gsl_test_int(num, 0, "n n="PCTZ"u" , n);
 
   gsl_rstat_free(rstat_workspace_p);
 }

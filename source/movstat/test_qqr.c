@@ -88,20 +88,20 @@ test_qqr_proc(const double tol, const double q, const size_t n, const size_t H, 
   gsl_movstat_qqr(etype, x, q, z, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u QQR random", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u QQR random", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = QQR(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_movstat_qqr(etype, z, q, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u QQR random in-place", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u QQR random in-place", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = QQR(x) with user-defined function */
   gsl_movstat_apply(etype, &F, x, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u QQR user", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u QQR user", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   gsl_movstat_free(w);

@@ -208,7 +208,7 @@ FUNCTION (test, realloc) (const size_t M, const size_t N)
         status = 1;
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_realloc[%zu,%zu]", M, N);
+  gsl_test (status, NAME (gsl_spmatrix) "_realloc["PCTZ"u,"PCTZ"u]", M, N);
 
   FUNCTION (gsl_spmatrix, free) (m);
 }
@@ -247,7 +247,7 @@ FUNCTION (test, getset) (const size_t M, const size_t N, const int sptype)
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_set[%zu,%zu] writes into arrays", M, N);
+  gsl_test (status, NAME (gsl_spmatrix) "_set["PCTZ"u,"PCTZ"u] writes into arrays", M, N);
 
   B = FUNCTION (gsl_spmatrix, compress) (A, sptype);
 
@@ -267,11 +267,11 @@ FUNCTION (test, getset) (const size_t M, const size_t N, const int sptype)
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_get[%zu,%zu](%s) reads from arrays",
+  gsl_test (status, NAME (gsl_spmatrix) "_get["PCTZ"u,"PCTZ"u](%s) reads from arrays",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   status = FUNCTION (gsl_spmatrix, nnz) (B) != M * N;
-  gsl_test (status, NAME (gsl_spmatrix) "_nnz[%zu,%zu](%s) %zu",
+  gsl_test (status, NAME (gsl_spmatrix) "_nnz["PCTZ"u,"PCTZ"u](%s) "PCTZ"u",
             M, N, FUNCTION (gsl_spmatrix, type) (B), FUNCTION (gsl_spmatrix, nnz) (B));
 
   /* test gsl_spmatrix_ptr */
@@ -294,13 +294,13 @@ FUNCTION (test, getset) (const size_t M, const size_t N, const int sptype)
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_ptr[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_ptr["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   /* test set_zero */
   FUNCTION (gsl_spmatrix, set_zero) (B);
   status = FUNCTION (gsl_spmatrix, nnz) (B) != 0;
-  gsl_test (status, NAME (gsl_spmatrix) "_set_zero[%zu,%zu](%s) nnz=%zu",
+  gsl_test (status, NAME (gsl_spmatrix) "_set_zero["PCTZ"u,"PCTZ"u](%s) nnz="PCTZ"u",
             M, N, FUNCTION (gsl_spmatrix, type) (B), FUNCTION (gsl_spmatrix, nnz) (B));
 
   if (B->sptype == GSL_SPMATRIX_COO)
@@ -332,11 +332,11 @@ FUNCTION (test, getset) (const size_t M, const size_t N, const int sptype)
             }
         }
 
-      gsl_test (status, NAME (gsl_spmatrix) " duplicates[%zu,%zu]", M, N);
+      gsl_test (status, NAME (gsl_spmatrix) " duplicates["PCTZ"u,"PCTZ"u]", M, N);
 
       nnz = FUNCTION (gsl_spmatrix, nnz) (B);
       status = nnz != expected_nnz;
-      gsl_test (status, NAME (gsl_spmatrix) " duplicates nnz[%zu,%zu] %zu/%zu",
+      gsl_test (status, NAME (gsl_spmatrix) " duplicates nnz["PCTZ"u,"PCTZ"u] "PCTZ"u/"PCTZ"u",
                 M, N, nnz, expected_nnz);
 
       /* test setting an element to 0 */
@@ -344,7 +344,7 @@ FUNCTION (test, getset) (const size_t M, const size_t N, const int sptype)
       FUNCTION (gsl_spmatrix, set) (B, 0, 0, zero);
       z = FUNCTION (gsl_spmatrix, get) (B, 0, 0);
       status = GSL_REAL(z) != (ATOMIC) 0 || GSL_IMAG(z) != (ATOMIC) 0;
-      gsl_test (status, NAME (gsl_spmatrix) " zero element[%zu,%zu] %f",
+      gsl_test (status, NAME (gsl_spmatrix) " zero element["PCTZ"u,"PCTZ"u] %f",
                 M, N, FUNCTION (gsl_spmatrix, get) (B, 0, 0));
     }
 
@@ -365,7 +365,7 @@ FUNCTION (test, memcpy) (const size_t M, const size_t N, const int sptype,
     FUNCTION (gsl_spmatrix, memcpy) (B, A);
 
     status = FUNCTION (gsl_spmatrix, equal) (A, B) != 1;
-    gsl_test (status, NAME (gsl_spmatrix) "_memcpy[%zu,%zu](%s) equality",
+    gsl_test (status, NAME (gsl_spmatrix) "_memcpy["PCTZ"u,"PCTZ"u](%s) equality",
               M, N, FUNCTION (gsl_spmatrix, type) (A));
 
     FUNCTION (gsl_spmatrix, free) (m);
@@ -396,7 +396,7 @@ FUNCTION (test, memcpy) (const size_t M, const size_t N, const int sptype,
           }
       }
 
-    gsl_test(status, NAME (gsl_spmatrix) "_transpose_memcpy[%zu,%zu](%s)",
+    gsl_test(status, NAME (gsl_spmatrix) "_transpose_memcpy["PCTZ"u,"PCTZ"u](%s)",
              M, N, FUNCTION (gsl_spmatrix, type) (A));
 
     FUNCTION (gsl_spmatrix, free) (m);
@@ -426,7 +426,7 @@ FUNCTION (test, transpose) (const size_t M, const size_t N, const int sptype,
         status = 1;
     }
 
-  gsl_test(status, NAME (gsl_spmatrix) "_transpose[%zu,%zu](%s)",
+  gsl_test(status, NAME (gsl_spmatrix) "_transpose["PCTZ"u,"PCTZ"u](%s)",
            M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   FUNCTION (gsl_spmatrix, free) (A);
@@ -465,7 +465,7 @@ FUNCTION (test, scale) (const size_t M, const size_t N, const int sptype,
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_scale[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_scale["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   /* reset B = A */
@@ -495,7 +495,7 @@ FUNCTION (test, scale) (const size_t M, const size_t N, const int sptype,
         status = 1;
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_scale_columns[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_scale_columns["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   FUNCTION (gsl_vector, free) (x);
@@ -527,7 +527,7 @@ FUNCTION (test, scale) (const size_t M, const size_t N, const int sptype,
         status = 1;
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_scale_rows[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_scale_rows["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   FUNCTION (gsl_vector, free) (x);
@@ -563,7 +563,7 @@ FUNCTION (test, add) (const size_t M, const size_t N, const int sptype,
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_add[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_add["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (A));
 
   /* test again with C = 2*A */
@@ -583,7 +583,7 @@ FUNCTION (test, add) (const size_t M, const size_t N, const int sptype,
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_add[%zu,%zu](%s) duplicate",
+  gsl_test (status, NAME (gsl_spmatrix) "_add["PCTZ"u,"PCTZ"u](%s) duplicate",
             M, N, FUNCTION (gsl_spmatrix, type) (A));
 
   FUNCTION (gsl_spmatrix, free) (A);
@@ -623,7 +623,7 @@ FUNCTION (test, add_to_dense) (const size_t M, const size_t N, const int sptype,
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_add_to_dense[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_add_to_dense["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   FUNCTION (gsl_matrix, free) (A);
@@ -659,14 +659,14 @@ FUNCTION (test, convert) (const size_t M, const size_t N, const int sptype,
         }
     }
 
-  gsl_test (status, NAME (gsl_spmatrix) "_sp2d[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_sp2d["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   /* convert C := D */
   FUNCTION (gsl_spmatrix, d2sp) (C, D);
 
   status = FUNCTION (gsl_spmatrix, equal) (A, C) != 1;
-  gsl_test (status, NAME (gsl_spmatrix) "_d2sp[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_d2sp["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   FUNCTION (gsl_spmatrix, free) (A);
@@ -694,7 +694,7 @@ FUNCTION (test, io_ascii) (const size_t M, const size_t N, const int sptype,
   fclose (f);
 
   status = FUNCTION (gsl_spmatrix, equal) (A, C) != 1;
-  gsl_test (status, NAME (gsl_spmatrix) "_fscanf[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_fscanf["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   unlink (filename);
@@ -723,7 +723,7 @@ FUNCTION (test, io_binary) (const size_t M, const size_t N, const int sptype,
   fclose (f);
 
   status = FUNCTION (gsl_spmatrix, equal) (B, C) != 1;
-  gsl_test (status, NAME (gsl_spmatrix) "_fread[%zu,%zu](%s)",
+  gsl_test (status, NAME (gsl_spmatrix) "_fread["PCTZ"u,"PCTZ"u](%s)",
             M, N, FUNCTION (gsl_spmatrix, type) (B));
 
   unlink (filename);

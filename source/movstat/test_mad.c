@@ -103,24 +103,24 @@ test_mad_proc(const double tol, const size_t n, const size_t H, const size_t J,
   gsl_movstat_median(etype, x, med2, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u MAD0 random", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u MAD0 random", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* test med1 = med2 */
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u MAD0 random median test", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u MAD0 random median test", n, H, J, etype);
   compare_vectors(tol, med1, med2, buf);
 
   /* z = MAD(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_movstat_mad0(etype, z, med1, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u MAD0 random in-place", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u MAD0 random in-place", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = MAD(x) with user-defined function */
   gsl_movstat_apply(etype, &F, x, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u MAD0 user", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u MAD0 user", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* test scaled MAD function */
@@ -128,7 +128,7 @@ test_mad_proc(const double tol, const size_t n, const size_t H, const size_t J,
   /* z = MAD(x) */
   gsl_movstat_mad(etype, x, med1, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u MAD random", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u MAD random", n, H, J, etype);
   gsl_vector_scale(y, scale);
   compare_vectors(tol, z, y, buf);
 

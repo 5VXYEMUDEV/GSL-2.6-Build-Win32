@@ -94,16 +94,16 @@ test_minmax_x(const double tol, const gsl_vector * x, const int H, const int J,
   /* compute moving min/max with slow brute force method */
   slow_minmax(endtype, x, z_min, z_max, H, J);
 
-  sprintf(buf, "test_minmax: %s min endtype=%d n=%zu H=%d J=%d", desc, endtype, n, H, J);
+  sprintf(buf, "test_minmax: %s min endtype=%d n="PCTZ"u H=%d J=%d", desc, endtype, n, H, J);
   compare_vectors(tol, u_min, z_min, buf);
 
-  sprintf(buf, "test_minmax: %s max endtype=%d n=%zu H=%d J=%d", desc, endtype, n, H, J);
+  sprintf(buf, "test_minmax: %s max endtype=%d n="PCTZ"u H=%d J=%d", desc, endtype, n, H, J);
   compare_vectors(tol, u_max, z_max, buf);
 
-  sprintf(buf, "test_minmax: %s minmax(minimum) endtype=%d n=%zu H=%d J=%d", desc, endtype, n, H, J);
+  sprintf(buf, "test_minmax: %s minmax(minimum) endtype=%d n="PCTZ"u H=%d J=%d", desc, endtype, n, H, J);
   compare_vectors(tol, y_min, z_min, buf);
 
-  sprintf(buf, "test_minmax: %s minmax(maximum) endtype=%d n=%zu H=%d J=%d", desc, endtype, n, H, J);
+  sprintf(buf, "test_minmax: %s minmax(maximum) endtype=%d n="PCTZ"u H=%d J=%d", desc, endtype, n, H, J);
   compare_vectors(tol, y_max, z_max, buf);
 
   /* in-place tests */
@@ -114,20 +114,20 @@ test_minmax_x(const double tol, const gsl_vector * x, const int H, const int J,
   gsl_movstat_min(endtype, u_min, u_min, w);
   gsl_movstat_max(endtype, u_max, u_max, w);
 
-  sprintf(buf, "test_minmax: %s in-place min endtype=%d n=%zu H=%d J=%d", desc, endtype, n, H, J);
+  sprintf(buf, "test_minmax: %s in-place min endtype=%d n="PCTZ"u H=%d J=%d", desc, endtype, n, H, J);
   compare_vectors(tol, u_min, z_min, buf);
 
-  sprintf(buf, "test_minmax: %s in-place max endtype=%d n=%zu H=%d J=%d", desc, endtype, n, H, J);
+  sprintf(buf, "test_minmax: %s in-place max endtype=%d n="PCTZ"u H=%d J=%d", desc, endtype, n, H, J);
   compare_vectors(tol, u_max, z_max, buf);
 
   /* user-defined function tests */
 
   gsl_movstat_apply(endtype, &F1, x, z_min, w);
-  sprintf(buf, "n=%zu H=%d J=%d endtype=%u min user", n, H, J, endtype);
+  sprintf(buf, "n="PCTZ"u H=%d J=%d endtype=%u min user", n, H, J, endtype);
   compare_vectors(tol, z_min, y_min, buf);
 
   gsl_movstat_apply(endtype, &F2, x, z_max, w);
-  sprintf(buf, "n=%zu H=%d J=%d endtype=%u max user", n, H, J, endtype);
+  sprintf(buf, "n="PCTZ"u H=%d J=%d endtype=%u max user", n, H, J, endtype);
   compare_vectors(tol, z_max, y_max, buf);
 
   gsl_vector_free(u_min);

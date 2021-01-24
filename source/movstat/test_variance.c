@@ -117,20 +117,20 @@ test_variance_proc(const double tol, const size_t n, const size_t H, const size_
   gsl_movstat_variance(etype, x, z, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u variance random", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u variance random", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = variance(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_movstat_variance(etype, z, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u variance random in-place", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u variance random in-place", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = variance(x) with user-defined function */
   gsl_movstat_apply(etype, &F1, x, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u variance user", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u variance user", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* test standard deviation */
@@ -142,20 +142,20 @@ test_variance_proc(const double tol, const size_t n, const size_t H, const size_
   gsl_movstat_sd(etype, x, z, w);
 
   /* test y = z */
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u stddev random", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u stddev random", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = stddev(x) in-place */
   gsl_vector_memcpy(z, x);
   gsl_movstat_sd(etype, z, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u stddev random in-place", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u stddev random in-place", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   /* z = stddev(x) with user-defined function */
   gsl_movstat_apply(etype, &F2, x, z, w);
 
-  sprintf(buf, "n=%zu H=%zu J=%zu endtype=%u stddev user", n, H, J, etype);
+  sprintf(buf, "n="PCTZ"u H="PCTZ"u J="PCTZ"u endtype=%u stddev user", n, H, J, etype);
   compare_vectors(tol, z, y, buf);
 
   gsl_movstat_free(w);

@@ -3118,7 +3118,7 @@ test_tri_invert2(CBLAS_UPLO_t Uplo, CBLAS_DIAG_t Diag, gsl_rng * r, const double
             {
               double Bii = gsl_matrix_get(B, i, i);
 
-              gsl_test_abs(Bii, 1.0, tol, "tri_invert[%zu,%zu] N=%zu upper %s",
+              gsl_test_abs(Bii, 1.0, tol, "tri_invert["PCTZ"u,"PCTZ"u] N="PCTZ"u upper %s",
                             i, i, n,
                             (Diag == CblasNonUnit) ? "NonUnit" : "Unit");
 
@@ -3126,7 +3126,7 @@ test_tri_invert2(CBLAS_UPLO_t Uplo, CBLAS_DIAG_t Diag, gsl_rng * r, const double
                 {
                   double Bij = gsl_matrix_get(B, i, j);
 
-                  gsl_test_abs(Bij, 0.0, tol, "tri_invert[%zu,%zu] N=%zu upper %s",
+                  gsl_test_abs(Bij, 0.0, tol, "tri_invert["PCTZ"u,"PCTZ"u] N="PCTZ"u upper %s",
                                i, j, n,
                                (Diag == CblasNonUnit) ? "NonUnit" : "Unit");
                 }
@@ -3138,7 +3138,7 @@ test_tri_invert2(CBLAS_UPLO_t Uplo, CBLAS_DIAG_t Diag, gsl_rng * r, const double
             {
               double Bii = gsl_matrix_get(B, i, i);
 
-              gsl_test_abs(Bii, 1.0, tol, "tri_invert[%zu,%zu] N=%zu lower %s",
+              gsl_test_abs(Bii, 1.0, tol, "tri_invert["PCTZ"u,"PCTZ"u] N="PCTZ"u lower %s",
                             i, i, n,
                             (Diag == CblasNonUnit) ? "NonUnit" : "Unit");
 
@@ -3146,7 +3146,7 @@ test_tri_invert2(CBLAS_UPLO_t Uplo, CBLAS_DIAG_t Diag, gsl_rng * r, const double
                 {
                   double Bij = gsl_matrix_get(B, i, j);
 
-                  gsl_test_abs(Bij, 0.0, tol, "tri_invert[%zu,%zu] N=%zu lower %s",
+                  gsl_test_abs(Bij, 0.0, tol, "tri_invert["PCTZ"u,"PCTZ"u] N="PCTZ"u lower %s",
                                i, j, n,
                                (Diag == CblasNonUnit) ? "NonUnit" : "Unit");
                 }

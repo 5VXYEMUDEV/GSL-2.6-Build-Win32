@@ -48,7 +48,7 @@ bard_checksol(const double x[], const double sumsq,
       if (bard_x[i] < -90000.0)
         continue;
 
-      gsl_test_rel(x[i], bard_x[i], epsrel, "%s/%s i=%zu",
+      gsl_test_rel(x[i], bard_x[i], epsrel, "%s/%s i="PCTZ"u",
                    sname, pname, i);
     }
 }

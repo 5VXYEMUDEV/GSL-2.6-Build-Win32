@@ -157,7 +157,7 @@ test_compare_vectors(const double tol, const gsl_vector * a,
       double ai = gsl_vector_get(a, i);
       double bi = gsl_vector_get(b, i);
 
-      gsl_test_rel(bi, ai, tol, "%s i=%zu", desc, i);
+      gsl_test_rel(bi, ai, tol, "%s i="PCTZ"u", desc, i);
     }
 }
 
@@ -363,7 +363,7 @@ test_random(const gsl_multilarge_linear_type * T,
         test_multifit_solve(lambda, X, y, NULL, NULL, NULL, &rnorm0, &snorm0, c0);
         test_multilarge_solve(T, lambda, X, y, NULL, NULL, NULL, &rnorm1, &snorm1, c1);
 
-        sprintf(str, "random %s unweighted stdform n=%zu p=%zu lambda=%g",
+        sprintf(str, "random %s unweighted stdform n="PCTZ"u p="PCTZ"u lambda=%g",
                 T->name, n, p, lambda);
         test_compare_vectors(tol, c0, c1, str);
 
@@ -376,7 +376,7 @@ test_random(const gsl_multilarge_linear_type * T,
         test_multifit_solve(lambda, X, y, w, diagL, NULL, &rnorm0, &snorm0, c0);
         test_multilarge_solve(T, lambda, X, y, w, diagL, NULL, &rnorm1, &snorm1, c1);
 
-        sprintf(str, "random %s weighted diag(L) n=%zu p=%zu lambda=%g",
+        sprintf(str, "random %s weighted diag(L) n="PCTZ"u p="PCTZ"u lambda=%g",
                 T->name, n, p, lambda);
         test_compare_vectors(tol, c0, c1, str);
 
@@ -389,7 +389,7 @@ test_random(const gsl_multilarge_linear_type * T,
         test_multifit_solve(lambda, X, y, NULL, diagL, NULL, &rnorm0, &snorm0, c0);
         test_multilarge_solve(T, lambda, X, y, NULL, diagL, NULL, &rnorm1, &snorm1, c1);
 
-        sprintf(str, "random %s unweighted diag(L) n=%zu p=%zu lambda=%g",
+        sprintf(str, "random %s unweighted diag(L) n="PCTZ"u p="PCTZ"u lambda=%g",
                 T->name, n, p, lambda);
         test_compare_vectors(tol, c0, c1, str);
 
@@ -402,7 +402,7 @@ test_random(const gsl_multilarge_linear_type * T,
         test_multifit_solve(lambda, X, y, w, NULL, Lsqr, &rnorm0, &snorm0, c0);
         test_multilarge_solve(T, lambda, X, y, w, NULL, Lsqr, &rnorm1, &snorm1, c1);
 
-        sprintf(str, "random %s weighted Lsqr n=%zu p=%zu lambda=%g",
+        sprintf(str, "random %s weighted Lsqr n="PCTZ"u p="PCTZ"u lambda=%g",
                 T->name, n, p, lambda);
         test_compare_vectors(tol, c0, c1, str);
 
@@ -415,7 +415,7 @@ test_random(const gsl_multilarge_linear_type * T,
         test_multifit_solve(lambda, X, y, NULL, NULL, Lsqr, &rnorm0, &snorm0, c0);
         test_multilarge_solve(T, lambda, X, y, NULL, NULL, Lsqr, &rnorm1, &snorm1, c1);
 
-        sprintf(str, "random %s unweighted Lsqr n=%zu p=%zu lambda=%g",
+        sprintf(str, "random %s unweighted Lsqr n="PCTZ"u p="PCTZ"u lambda=%g",
                 T->name, n, p, lambda);
         test_compare_vectors(tol, c0, c1, str);
 
@@ -428,7 +428,7 @@ test_random(const gsl_multilarge_linear_type * T,
         test_multifit_solve(lambda, X, y, w, NULL, Ltall, &rnorm0, &snorm0, c0);
         test_multilarge_solve(T, lambda, X, y, w, NULL, Ltall, &rnorm1, &snorm1, c1);
 
-        sprintf(str, "random %s weighted Ltall n=%zu p=%zu lambda=%g",
+        sprintf(str, "random %s weighted Ltall n="PCTZ"u p="PCTZ"u lambda=%g",
                 T->name, n, p, lambda);
         test_compare_vectors(tol, c0, c1, str);
 
@@ -441,7 +441,7 @@ test_random(const gsl_multilarge_linear_type * T,
         test_multifit_solve(lambda, X, y, NULL, NULL, Ltall, &rnorm0, &snorm0, c0);
         test_multilarge_solve(T, lambda, X, y, NULL, NULL, Ltall, &rnorm1, &snorm1, c1);
 
-        sprintf(str, "random %s unweighted Ltall n=%zu p=%zu lambda=%g",
+        sprintf(str, "random %s unweighted Ltall n="PCTZ"u p="PCTZ"u lambda=%g",
                 T->name, n, p, lambda);
         test_compare_vectors(tol, c0, c1, str);
 

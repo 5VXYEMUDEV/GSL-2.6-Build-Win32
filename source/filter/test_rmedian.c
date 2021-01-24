@@ -85,7 +85,7 @@ test_rmedian_root(const gsl_filter_end_t etype, const size_t n, const size_t k)
   /* compute y = rmedian(x) and test y = x */
   gsl_filter_rmedian(etype, x, y, w);
 
-  sprintf(buf, "n=%zu k=%zu RMF square wave root sequence", n, k);
+  sprintf(buf, "n="PCTZ"u k="PCTZ"u RMF square wave root sequence", n, k);
   compare_vectors(tol, y, x, buf);
 
   gsl_vector_free(x);
@@ -114,7 +114,7 @@ test_rmedian_random(const gsl_filter_end_t etype, const size_t n, const int K, g
   slow_rmedian(etype, x, z, K);
 
   /* test y = z */
-  sprintf(buf, "n=%zu K=%d RMF symmetric random slow test", n, K);
+  sprintf(buf, "n="PCTZ"u K=%d RMF symmetric random slow test", n, K);
   compare_vectors(tol, y, z, buf);
 
   /* test in-place filter */
@@ -123,7 +123,7 @@ test_rmedian_random(const gsl_filter_end_t etype, const size_t n, const int K, g
   gsl_vector_memcpy(z, x);
   gsl_filter_rmedian(etype, z, z, w);
 
-  sprintf(buf, "n=%zu K=%d RMF symmetric random in-place", n, K);
+  sprintf(buf, "n="PCTZ"u K=%d RMF symmetric random in-place", n, K);
   compare_vectors(tol, z, y, buf);
 
   gsl_vector_free(x);

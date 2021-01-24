@@ -90,7 +90,7 @@ test_impulse_proc(const double tol, const size_t n, const size_t K, const double
   gsl_filter_impulse(etype, stype, nsigma, x, y, xmedian, xsigma, &noutlier, ioutlier, impulse_p);
 
   /* test correct number of outliers detected */
-  gsl_test(noutlier != noutlier_exact, "impulse [n=%zu,K=%zu,nsigma=%g,outlier_percentage=%g] noutlier=%zu exact=%zu",
+  gsl_test(noutlier != noutlier_exact, "impulse [n="PCTZ"u,K="PCTZ"u,nsigma=%g,outlier_percentage=%g] noutlier="PCTZ"u exact="PCTZ"u",
            n, K, nsigma, outlier_percentage, noutlier, noutlier_exact);
 
 #if 0
@@ -113,14 +113,14 @@ test_impulse_proc(const double tol, const size_t n, const size_t K, const double
       int val = gsl_vector_int_get(ioutlier, i);
       int val_exact = gsl_vector_int_get(ioutlier_exact, i);
 
-      gsl_test(val != val_exact, "test_impulse: outlier mismatch [i=%zu,K=%zu,nsigma=%g,outlier_percentage=%g] ioutlier=%d ioutlier_exact=%d",
+      gsl_test(val != val_exact, "test_impulse: outlier mismatch [i="PCTZ"u,K="PCTZ"u,nsigma=%g,outlier_percentage=%g] ioutlier=%d ioutlier_exact=%d",
                i, K, nsigma, outlier_percentage, val, val_exact);
     }
 
   /* test noutlier = sum(ioutlier) */
   {
     size_t iout_sum = vector_sum(ioutlier);
-    gsl_test(noutlier != iout_sum, "impulse [K=%zu,nsigma=%g,outlier_percentage=%g] noutlier=%zu sum(ioutlier)=%zu",
+    gsl_test(noutlier != iout_sum, "impulse [K="PCTZ"u,nsigma=%g,outlier_percentage=%g] noutlier="PCTZ"u sum(ioutlier)="PCTZ"u",
              K, nsigma, outlier_percentage, noutlier, iout_sum);
   }
 
@@ -129,7 +129,7 @@ test_impulse_proc(const double tol, const size_t n, const size_t K, const double
   gsl_vector_memcpy(z, x);
   gsl_filter_impulse(etype, stype, nsigma, z, z, xmedian, xsigma, &noutlier, ioutlier, impulse_p);
 
-  sprintf(buf, "impulse in-place nsigma=%g,n=%zu,K=%zu,etype=%u stype=%u", nsigma, n, K, etype, stype);
+  sprintf(buf, "impulse in-place nsigma=%g,n="PCTZ"u,K="PCTZ"u,etype=%u stype=%u", nsigma, n, K, etype, stype);
   compare_vectors(GSL_DBL_EPSILON, z, y, buf);
 
   gsl_vector_free(x);
