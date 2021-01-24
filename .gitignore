@@ -67,3 +67,5 @@ source/block/block.vcxproj.user
 /source/cheb/cheb.vcxproj.user
 /source/combination/x64
 /source/combination/combination.vcxproj.user
+/source/complex/x64
+/source/complex/complex.vcxproj.user
