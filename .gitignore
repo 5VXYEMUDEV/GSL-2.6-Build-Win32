@@ -63,3 +63,5 @@ source/block/block.vcxproj.user
 /source/cblas/cblas.vcxproj.user
 /source/cdf/x64
 /source/cdf/cdf.vcxproj.user
+/source/cheb/x64
+/source/cheb/cheb.vcxproj.user
