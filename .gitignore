@@ -55,3 +55,5 @@ source/blas/blas.vcxproj.user
 /source/blas/x64
 source/block/block.vcxproj.user
 /source/block/x64
+/source/bspline/x64
+/source/bspline/bspline.vcxproj.user
