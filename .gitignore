@@ -101,3 +101,5 @@ source/block/block.vcxproj.user
 /source/min/min.vcxproj.user
 /source/monte/x64
 /source/monte/monte.vcxproj.user
+/source/multifit/x64
+/source/multifit/multifit.vcxproj.user
