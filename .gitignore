@@ -83,3 +83,5 @@ source/block/block.vcxproj.user
 /source/fft/fft.vcxproj.user
 /source/filter/x64
 /source/filter/filter.vcxproj.user
+/source/fit/x64
+/source/fit/fit.vcxproj.user
