@@ -77,3 +77,5 @@ source/block/block.vcxproj.user
 /source/diff/diff.vcxproj.user
 /source/eigen/x64
 /source/eigen/eigen.vcxproj.user
+/source/err/x64
+/source/err/err.vcxproj.user
