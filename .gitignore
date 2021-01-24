@@ -73,3 +73,5 @@ source/block/block.vcxproj.user
 /source/deriv/deriv.vcxproj.user
 /source/dht/x64
 /source/dht/dht.vcxproj.user
+/source/diff/x64
+/source/diff/diff.vcxproj.user
