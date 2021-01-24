@@ -107,3 +107,5 @@ source/block/block.vcxproj.user
 /source/multifit_nlinear/multifit_nlinear.vcxproj.user
 /source/multilarge/x64
 /source/multilarge/multilarge.vcxproj.user
+/source/multilarge_nlinear/x64
+/source/multilarge_nlinear/multilarge_nlinear.vcxproj.user
