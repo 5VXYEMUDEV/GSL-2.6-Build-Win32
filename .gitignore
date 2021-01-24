@@ -91,3 +91,5 @@ source/block/block.vcxproj.user
 /source/ieee-utils/ieee-utils.vcxproj.user
 /source/integration/x64
 /source/integration/integration.vcxproj.user
+/source/interpolation/x64
+/source/interpolation/interpolation.vcxproj.user
