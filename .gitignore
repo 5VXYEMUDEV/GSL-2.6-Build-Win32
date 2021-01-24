@@ -81,3 +81,5 @@ source/block/block.vcxproj.user
 /source/err/err.vcxproj.user
 /source/fft/x64
 /source/fft/fft.vcxproj.user
+/source/filter/x64
+/source/filter/filter.vcxproj.user
