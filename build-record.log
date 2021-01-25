@@ -54,6 +54,7 @@ VS2019 build record
 |C| statistics
 |C| sum
 |C| sys
+|C| vector
 
 ===============
 TO INTEGRAtion
@@ -67,3 +68,4 @@ TO build
 ===============
 
 movstat
+utils

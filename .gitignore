@@ -153,3 +153,6 @@ source/block/block.vcxproj.user
 /source/sum/sum.vcxproj.user
 /source/sys/x64
 /source/sys/sys.vcxproj.user
+/source/utils/utils.vcxproj.user
+/source/vector/x64
+/source/vector/vector.vcxproj.user
