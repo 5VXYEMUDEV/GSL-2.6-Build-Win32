@@ -139,3 +139,5 @@ source/block/block.vcxproj.user
 /source/siman/siman.vcxproj.user
 /source/sort/x64
 /source/sort/sort.vcxproj.user
+/source/spblas/x64
+/source/spblas/spblas.vcxproj.user
