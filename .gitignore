@@ -151,3 +151,5 @@ source/block/block.vcxproj.user
 /source/statistics/statistics.vcxproj.user
 /source/sum/x64
 /source/sum/sum.vcxproj.user
+/source/sys/x64
+/source/sys/sys.vcxproj.user
