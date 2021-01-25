@@ -147,3 +147,5 @@ source/block/block.vcxproj.user
 /source/splinalg/splinalg.vcxproj.user
 /source/spmatrix/x64
 /source/spmatrix/spmatrix.vcxproj.user
+/source/statistics/x64
+/source/statistics/statistics.vcxproj.user

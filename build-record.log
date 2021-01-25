@@ -51,6 +51,7 @@ VS2019 build record
 |C| specfunc
 |C| splinalg
 |C| spmatrix
+|C| statistics
 
 ===============
 TO INTEGRAtion
