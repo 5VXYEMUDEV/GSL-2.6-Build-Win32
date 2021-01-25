@@ -131,3 +131,5 @@ source/block/block.vcxproj.user
 /source/randist/randist.vcxproj.user
 /source/rng/x64
 /source/rng/rng.vcxproj.user
+/source/roots/x64
+/source/roots/roots.vcxproj.user
