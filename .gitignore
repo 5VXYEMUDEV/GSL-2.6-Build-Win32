@@ -117,3 +117,5 @@ source/block/block.vcxproj.user
 /source/multiset/multiset.vcxproj.user
 /source/ntuple/x64
 /source/ntuple/ntuple.vcxproj.user
+/source/ode-initval/x64
+/source/ode-initval/ode-initval.vcxproj.user
