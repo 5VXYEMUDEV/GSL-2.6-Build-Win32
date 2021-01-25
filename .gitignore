@@ -113,3 +113,5 @@ source/block/block.vcxproj.user
 /source/multimin/multimin.vcxproj.user
 /source/multiroots/x64
 /source/multiroots/multiroots.vcxproj.user
+/source/multiset/x64
+/source/multiset/multiset.vcxproj.user
