@@ -115,3 +115,5 @@ source/block/block.vcxproj.user
 /source/multiroots/multiroots.vcxproj.user
 /source/multiset/x64
 /source/multiset/multiset.vcxproj.user
+/source/ntuple/x64
+/source/ntuple/ntuple.vcxproj.user
