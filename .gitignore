@@ -111,3 +111,5 @@ source/block/block.vcxproj.user
 /source/multilarge_nlinear/multilarge_nlinear.vcxproj.user
 /source/multimin/x64
 /source/multimin/multimin.vcxproj.user
+/source/multiroots/x64
+/source/multiroots/multiroots.vcxproj.user
