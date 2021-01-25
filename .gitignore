@@ -133,3 +133,5 @@ source/block/block.vcxproj.user
 /source/rng/rng.vcxproj.user
 /source/roots/x64
 /source/roots/roots.vcxproj.user
+/source/rstat/x64
+/source/rstat/rstat.vcxproj.user
