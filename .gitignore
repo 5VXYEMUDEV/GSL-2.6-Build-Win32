@@ -149,3 +149,5 @@ source/block/block.vcxproj.user
 /source/spmatrix/spmatrix.vcxproj.user
 /source/statistics/x64
 /source/statistics/statistics.vcxproj.user
+/source/sum/x64
+/source/sum/sum.vcxproj.user
