@@ -143,3 +143,5 @@ source/block/block.vcxproj.user
 /source/spblas/spblas.vcxproj.user
 /source/specfunc/x64
 /source/specfunc/specfunc.vcxproj.user
+/source/splinalg/x64
+/source/splinalg/splinalg.vcxproj.user
