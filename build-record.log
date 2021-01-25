@@ -54,7 +54,9 @@ VS2019 build record
 |C| statistics
 |C| sum
 |C| sys
+
 |C| vector
+|C| wavelet
 
 ===============
 TO INTEGRAtion
