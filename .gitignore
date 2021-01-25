@@ -129,3 +129,5 @@ source/block/block.vcxproj.user
 /source/qrng/qrng.vcxproj.user
 /source/randist/x64
 /source/randist/randist.vcxproj.user
+/source/rng/x64
+/source/rng/rng.vcxproj.user
