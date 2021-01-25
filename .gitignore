@@ -137,3 +137,5 @@ source/block/block.vcxproj.user
 /source/rstat/rstat.vcxproj.user
 /source/siman/x64
 /source/siman/siman.vcxproj.user
+/source/sort/x64
+/source/sort/sort.vcxproj.user
