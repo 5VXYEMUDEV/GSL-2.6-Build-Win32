@@ -125,3 +125,5 @@ source/block/block.vcxproj.user
 /source/permutation/permutation.vcxproj.user
 /source/poly/x64
 /source/poly/poly.vcxproj.user
+/source/qrng/x64
+/source/qrng/qrng.vcxproj.user
