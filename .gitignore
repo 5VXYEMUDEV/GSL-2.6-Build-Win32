@@ -123,3 +123,5 @@ source/block/block.vcxproj.user
 /source/ode-initval2/ode-initval2.vcxproj.user
 /source/permutation/x64
 /source/permutation/permutation.vcxproj.user
+/source/poly/x64
+/source/poly/poly.vcxproj.user
