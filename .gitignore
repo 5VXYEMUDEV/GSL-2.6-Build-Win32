@@ -158,3 +158,5 @@ source/block/block.vcxproj.user
 /source/vector/vector.vcxproj.user
 /source/wavelet/x64
 /source/wavelet/wavelet.vcxproj.user
+/libgsl/x64
+/libgsl/libgsl.vcxproj.user
