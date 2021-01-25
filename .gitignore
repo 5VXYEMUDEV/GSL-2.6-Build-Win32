@@ -145,3 +145,5 @@ source/block/block.vcxproj.user
 /source/specfunc/specfunc.vcxproj.user
 /source/splinalg/x64
 /source/splinalg/splinalg.vcxproj.user
+/source/spmatrix/x64
+/source/spmatrix/spmatrix.vcxproj.user

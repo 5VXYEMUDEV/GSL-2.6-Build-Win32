@@ -50,6 +50,7 @@ VS2019 build record
 |C| spblas
 |C| specfunc
 |C| splinalg
+|C| spmatrix
 
 ===============
 TO INTEGRAtion
