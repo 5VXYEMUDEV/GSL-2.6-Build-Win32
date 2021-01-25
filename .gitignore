@@ -119,3 +119,5 @@ source/block/block.vcxproj.user
 /source/ntuple/ntuple.vcxproj.user
 /source/ode-initval/x64
 /source/ode-initval/ode-initval.vcxproj.user
+/source/ode-initval2/x64
+/source/ode-initval2/ode-initval2.vcxproj.user
